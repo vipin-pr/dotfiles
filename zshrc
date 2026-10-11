@@ -57,7 +57,7 @@ alias cls='clear'
 alias grep='grep --color=always'
 alias cp='cp -i'
 alias rm='rm -i'
-alias rm='mv -i'
+alias mv='mv -i'
 alias bat='batcat'
 alias k='kubecolor'
 alias kubectl='kubecolor'
@@ -70,7 +70,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load Github Key
 SSH_ENV="$HOME/.ssh/agent-environment"
-SSH_PRIVATE_KEY="$HOME/.ssh/vpr-nrs-github-key"
+SSH_PRIVATE_KEY="$HOME/.ssh/<key>"
 
 start_agent() {
     echo "Starting new ssh-agent..."
