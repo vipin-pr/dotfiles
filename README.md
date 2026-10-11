@@ -32,7 +32,6 @@
 | `Prefix` + `[` | Enter copy mode |
 | `v` (Copy mode) | Begin text selection |
 | `y` (Copy mode) | Copy selection and exit copy mode |
-| Mouse wheel | Scroll through pane history |
 
 ## Configuration
 
@@ -55,11 +54,3 @@
 | Status left | Current Git branch |
 | Status right | Weekday, date and time |
 | Active window | Black text on green background |
-
-## Notes
-
-- The default prefix is `Ctrl-b`.
-- New panes open in the current pane's working directory.
-- Synchronized panes send your input to every pane in the current window. Use this carefully.
-- `Prefix` + `v` requires `~/.tmux/update-window-name.sh` to exist.
-- No-prefix window movement depends on your terminal correctly passing `Ctrl-Shift-Arrow` combinations.
