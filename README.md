@@ -1,83 +1,65 @@
-# Tmux Shortcuts Documentation
+# tmux Keybindings Reference
 
-## Prefix Key
-- `Ctrl+k` → New tmux prefix (replaces `Ctrl+b`)
+**Prefix:** `Ctrl-b` — press and release the prefix, then press the next key unless marked **No prefix**.
 
----
+## Window Management
 
-## Windows
-- `Ctrl+k + n` → New window (in current path)  
-- `Ctrl+k + j` → Next window
-- `Ctrl+k + h` → Previous window 
-- `Ctrl+k + w` → List all windows  
-- `Ctrl+k + r` → Rename current window  
-- `Ctrl+k + e` → Close current window (confirmation y/n)  
+| Keybinding | Action |
+|---|---|
+| `Prefix` + `w` | Open window chooser |
+| `Prefix` + `r` | Rename current window |
+| `Prefix` + `e` | Confirm and close current window |
+| `Prefix` + `v` | Run window naming script |
+| `Ctrl-Shift-Left` (No prefix) | Move window left |
+| `Ctrl-Shift-Right` (No prefix) | Move window right |
 
-### Direct Window Selection
-- `Ctrl+j` → Next window (no prefix needed)  
+## Pane Management
 
----
+| Keybinding | Action |
+|---|---|
+| `Prefix` + `h` | Move to left pane |
+| `Prefix` + `j` | Move to pane below |
+| `Prefix` + `k` | Move to pane above |
+| `Prefix` + `l` | Move to right pane |
+| `Prefix` + `-` | Split horizontally (top/bottom) |
+| `Prefix` + `\|` | Split vertically (left/right) |
+| `Prefix` + `y` | Toggle synchronized panes |
 
-## Panes
-- `Alt + ←` → Move to left pane  
-- `Alt + ↓` → Move to pane below  
-- `Alt + ↑` → Move to pane above  
-- `Alt + →` → Move to right pane  
-- `Ctrl+k + y` → Toggle sync panes  
-- `Ctrl+k + z` → Toggle zoom for the current pane  
-- `Ctrl+k + -` → Split pane horizontally (top/bottom)  
-- `Ctrl+k + |` → Split pane vertically (left/right)    
+## Copy Mode & Scrolling
 
----
+| Keybinding | Action |
+|---|---|
+| `Prefix` + `[` | Enter copy mode |
+| `v` (Copy mode) | Begin text selection |
+| `y` (Copy mode) | Copy selection and exit copy mode |
+| Mouse wheel | Scroll through pane history |
 
-## Swap Windows
-- `Ctrl+Shift+Left` → Swap current window with previous  
-- `Ctrl+Shift+Right` → Swap current window with next  
+## Configuration
 
----
+| Keybinding | Action |
+|---|---|
+| `Prefix` + `o` | Reload `~/.tmux.conf` |
 
-## Copy Mode & Search
-- `Ctrl+f` → Enter copy mode and start search  
+## Appearance & Settings
 
----
-
-## Reload Config
-- `Ctrl+o` → Reload `.tmux.conf`  
-
----
-
-- `Ctrl+z` → Toggle zoom for current pane
-
----
-
-## Mouse & Scrolling
-- Mouse support enabled (`set -g mouse on`)  
-- Scroll in panes using mouse wheel  
-- Click to select and copy text  
-
----
-
-## Clipboard
-- System clipboard integration enabled (`set-clipboard on`)  
-
----
-
-## Status Bar
-- Position: bottom  
-- Background color: `colour233`  
-- Foreground color: `white`  
-- Centered alignment  
-- Left status: current Git branch only (updates automatically if in a Git repo)  
-- Right status: weekday + date + time (`%a %d-%b-%y %H:%M`)  
-- Current window style: black text on green background  
-- Status bar refresh interval: 2 seconds  
-
----
+| Setting | Description |
+|---|---|
+| Terminal | `xterm-256color` |
+| Scrollback history | 40,000 lines per pane |
+| Mouse support | Enabled |
+| Clipboard | tmux clipboard integration enabled |
+| Copy mode | Vim-style keybindings |
+| Status bar | Bottom of terminal |
+| Status refresh | Every 2 seconds |
+| Window alignment | Centered |
+| Status left | Current Git branch |
+| Status right | Weekday, date and time |
+| Active window | Black text on green background |
 
 ## Notes
-- History limit: 40000 lines  
-- 256-color support enabled  
-- Alt + arrow keys and Vim-like keys improve pane navigation  
-- Keybindings override some tmux defaults (e.g., `m` now resizes pane up instead of mark-pane)  
-- `Ctrl+k + z` toggles zoom for the current pane  
-- Left status only shows Git branch when in a Git repository  
+
+- The default prefix is `Ctrl-b`.
+- New panes open in the current pane's working directory.
+- Synchronized panes send your input to every pane in the current window. Use this carefully.
+- `Prefix` + `v` requires `~/.tmux/update-window-name.sh` to exist.
+- No-prefix window movement depends on your terminal correctly passing `Ctrl-Shift-Arrow` combinations.
