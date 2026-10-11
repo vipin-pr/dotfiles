@@ -1,10 +1,13 @@
 [general]
-import = [
-    "C:/Users/vpr/AppData/Roaming/alacritty/alacritty-theme/themes/gruber_darker.toml"
-]
+import = [ "themes/gruber_darker.toml" ]
 
 [font]
-normal = { family = "Iosevka Term", style = "Regular" }
+normal = { family = "IosevkaTerm Nerd Font", style = "Regular" }
 
 [window]
 padding = { x = 8, y = 8 }
+
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"
