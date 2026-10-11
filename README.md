@@ -1,6 +1,6 @@
 # tmux Keybindings Reference
 
-**Prefix:** `Ctrl-b` — press and release the prefix, then press the next key unless marked **No prefix**.
+**Prefix:** `Ctrl-b`
 
 ## Window Management
 
