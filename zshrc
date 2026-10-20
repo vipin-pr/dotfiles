@@ -72,6 +72,11 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 SSH_ENV="$HOME/.ssh/agent-environment"
 SSH_PRIVATE_KEY="$HOME/.ssh/<key>"
 
+#~/.ssh/agent-environment
+#SSH_AUTH_SOCK=/tmp/ssh-XXXXXXHBWZkj/agent.13; export SSH_AUTH_SOCK;
+#SSH_AGENT_PID=14; export SSH_AGENT_PID;
+#echo Agent pid 14;
+
 start_agent() {
     echo "Starting new ssh-agent..."
     /usr/bin/ssh-agent -s > "$SSH_ENV"
