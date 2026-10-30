@@ -1,9 +1,11 @@
-setopt histignorealldups sharehistory
-
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=50000
 HISTFILE=~/.zsh_history
+
+# History options
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
 
 # Use modern completion system
 autoload -Uz compinit
@@ -24,11 +26,19 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Edit current command using Vim
+export EDITOR=vim
+export VISUAL=vim
+autoload -Uz edit-command-line
+zle -N edit-command-line
 
 # Vim mode
 bindkey -v
+bindkey -M viins '^Xe' edit-command-line
+bindkey -M vicmd '^Xe' edit-command-line
 bindkey -M viins 'jj' vi-cmd-mode
 
 # Vim text objects
@@ -39,6 +49,7 @@ for m in visual viopp; do
         bindkey -M $m $c select-quoted
     done
 done
+
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
@@ -70,7 +81,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load Github Key
 SSH_ENV="$HOME/.ssh/agent-environment"
-SSH_PRIVATE_KEY="$HOME/.ssh/<key>"
+SSH_PRIVATE_KEY="$HOME/.ssh/vpr-github-key"
 
 #~/.ssh/agent-environment
 #SSH_AUTH_SOCK=/tmp/ssh-XXXXXXHBWZkj/agent.13; export SSH_AUTH_SOCK;
